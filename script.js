@@ -1,13 +1,12 @@
 const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
 const personalImage = document.getElementById('personalImage');
-const startBtn = document.getElementById('startBtn');
 
-// Read name from URL
+// قراءة الاسم من الرابط
 const params = new URLSearchParams(window.location.search);
 const name = params.get('name');
 
-// Assign correct image
+// تحديد الصورة الخاصة حسب الاسم
 let imageSrc = '';
 switch(name){
   case 'Khadijah': imageSrc = 'images/Khadijah.jpg'; break;
@@ -18,33 +17,25 @@ switch(name){
   default:         imageSrc = 'images/invite.jpg';
 }
 
+// تعيين الصورة الخاصة للصفحة الثانية
 personalImage.src = imageSrc;
 
-// Initial state
+// ضبط الحالة الأولية
 page1.style.opacity = 1;
 page2.style.opacity = 0;
 page1.style.display = 'block';
 page2.style.display = 'block';
 
-// Function to start transition
-function startTransition() {
+// بعد 5 ثوانٍ، الانتقال من صفحة الدعوة إلى الصورة الخاصة
+setTimeout(() => {
+  // fade-out صفحة الدعوة
+  page1.style.transition = 'opacity 1s ease';
+  page1.style.opacity = 0;
 
-  // Fade out invite
+  // fade-in الصورة الخاصة بعد 1 ثانية
   setTimeout(() => {
-    page1.style.transition = 'opacity 1s ease';
-    page1.style.opacity = 0;
+    page2.style.transition = 'opacity 1s ease';
+    page2.style.opacity = 1;
+  }, 1000);
 
-    // Fade in name after 1 second
-    setTimeout(() => {
-      page2.style.transition = 'opacity 1s ease';
-      page2.style.opacity = 1;
-    }, 1000);
-
-  }, 5000); // 5 seconds invite display
-}
-
-// Wait for user interaction to allow audio
-startBtn.addEventListener('click', () => {
-  startBtn.style.display = 'none'; // Hide button
-  startTransition();
-});
+}, 5000);
