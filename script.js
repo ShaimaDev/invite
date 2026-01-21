@@ -2,7 +2,7 @@ const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
 const personalImage = document.getElementById('personalImage');
 
-// قراءة اسم الشخص من الرابط
+// قراءة الاسم من الرابط
 const params = new URLSearchParams(window.location.search);
 const name = params.get('name');
 
@@ -25,12 +25,12 @@ switch(name){
     imageSrc = 'images/HALA.jpg';
     break;
   default:
-    imageSrc = 'images/Khadijah.jpg'; // افتراضي
+    imageSrc = 'images/invite.jpg'; // الصورة العامة لو لم يتطابق الاسم
 }
 
 personalImage.src = imageSrc;
 
-// بعد 5 ثواني، الانتقال الناعم
+// بعد 6 ثواني، الانتقال الناعم
 setTimeout(() => {
   page1.classList.add('hidden');
   setTimeout(() => {
@@ -42,4 +42,4 @@ setTimeout(() => {
       page2.style.opacity = 1;
     }, 50);
   }, 1000);
-}, 5000);
+}, 6000); // 6 ثواني بدلاً من 5
