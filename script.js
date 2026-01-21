@@ -1,7 +1,6 @@
 const page1 = document.getElementById('page1');
 const page2 = document.getElementById('page2');
 const personalImage = document.getElementById('personalImage');
-const transitionSound = document.getElementById('transitionSound');
 const startBtn = document.getElementById('startBtn');
 
 // Read name from URL
@@ -29,9 +28,6 @@ page2.style.display = 'block';
 
 // Function to start transition
 function startTransition() {
-  // Play sound
-  transitionSound.currentTime = 0;
-  transitionSound.play().catch(e => console.log("Audio not allowed yet"));
 
   // Fade out invite
   setTimeout(() => {
