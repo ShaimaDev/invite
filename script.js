@@ -21,20 +21,24 @@ switch(name){
 
 personalImage.src = imageSrc;
 
-// Make sure invite shows first
+// Initial state
 page1.style.opacity = 1;
+page2.style.opacity = 0;
 page1.style.display = 'block';
 page2.style.display = 'block';
-page2.style.opacity = 0;
 
-// Function for fade-out/fade-in transition
+// Function to start transition
 function startTransition() {
+  // Play sound
+  transitionSound.currentTime = 0;
+  transitionSound.play().catch(e => console.log("Audio not allowed yet"));
+
+  // Fade out invite
   setTimeout(() => {
-    // Fade out invite
     page1.style.transition = 'opacity 1s ease';
     page1.style.opacity = 0;
 
-    // Fade in name after fade-out
+    // Fade in name after 1 second
     setTimeout(() => {
       page2.style.transition = 'opacity 1s ease';
       page2.style.opacity = 1;
@@ -43,10 +47,8 @@ function startTransition() {
   }, 5000); // 5 seconds invite display
 }
 
-// Event listener for Start button
+// Wait for user interaction to allow audio
 startBtn.addEventListener('click', () => {
-  startBtn.style.display = 'none';       // Hide button
-  transitionSound.currentTime = 0;       // Reset audio
-  transitionSound.play();                // Play sound
-  startTransition();                     // Start fade transition
+  startBtn.style.display = 'none'; // Hide button
+  startTransition();
 });
