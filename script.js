@@ -26,9 +26,14 @@ page1.style.display = 'block';
 page2.style.display = 'block';
 page2.style.opacity = 0;
 
+// **Optional: require one click to allow sound in Chrome**
+document.body.addEventListener('click', () => {
+  transitionSound.play();
+}, { once: true });
+
 // After 5 seconds, fade out invite, fade in name
 setTimeout(() => {
-  // Play transition sound
+  // Play sound (will work if browser allows)
   transitionSound.currentTime = 0;
   transitionSound.play();
 
@@ -36,10 +41,10 @@ setTimeout(() => {
   page1.style.transition = 'opacity 1s ease';
   page1.style.opacity = 0;
 
-  // After fade-out completes, fade in the name
+  // Fade in name after 1 second
   setTimeout(() => {
     page2.style.transition = 'opacity 1s ease';
     page2.style.opacity = 1;
-  }, 1000); // match fade-out duration
+  }, 1000);
 
 }, 5000);
