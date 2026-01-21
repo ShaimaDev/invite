@@ -6,8 +6,8 @@ const personalImage = document.getElementById('personalImage');
 const params = new URLSearchParams(window.location.search);
 const name = params.get('name');
 
-// تحديد الصورة الخاصة حسب الاسم
-let imageSrc = 'images/invite.jpg'; // default
+// تعيين الصورة الخاصة حسب الاسم
+let imageSrc = '';
 switch(name){
   case 'Khadijah':
     imageSrc = 'images/Khadijah.jpg';
@@ -28,23 +28,24 @@ switch(name){
     imageSrc = 'images/invite.jpg'; // fallback
 }
 
-// **اجعل الصفحة الثانية تحتوي على الصورة الخاصة فقط بعد الدعوة**
+// **الصورة الخاصة لا تُعرض إلا بعد الانتقال**
 personalImage.src = imageSrc;
 
-// الآن الانتقال: تظهر صفحة الدعوة أولاً ثم بعد 5 ثواني تظهر الصورة الخاصة
+// بعد 5 ثواني، الانتقال من صفحة الدعوة إلى الصورة الخاصة
 setTimeout(() => {
-  // أخفي صفحة الدعوة تدريجيًا
+  // أخفي صفحة الدعوة
   page1.classList.add('hidden');
 
-  // بعد 1 ثانية (مدة الـ fade)، أظهر الصورة الخاصة
   setTimeout(() => {
     page1.style.display = 'none';
     page2.style.opacity = 0;
     page2.style.display = 'block';
+
+    // fade in للصورة الخاصة
     setTimeout(() => {
       page2.style.transition = 'opacity 1s ease';
       page2.style.opacity = 1;
     }, 50);
   }, 1000);
 
-}, 5000); // هنا مدة عرض الصورة الأولى (5 ثواني)
+}, 5000);
