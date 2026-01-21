@@ -13,13 +13,19 @@ body {
   height: 1123px;
   object-fit: cover;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: opacity 1s ease; /* هذا لإضافة تأثير fade */
+  opacity: 1;
 }
 
 .page {
-  display: none;
-  position: relative;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.page.active {
-  display: block;
+.page.hidden {
+  opacity: 0;
+  pointer-events: none; /* تمنع التفاعل مع الصفحة المخفية */
 }
