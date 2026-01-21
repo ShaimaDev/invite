@@ -8,9 +8,8 @@ body {
   height: 100vh;
 }
 
-/* مقاس A4 */
 .page img {
-  width: 794px;
+  width: 794px;   /* مقاس A4 */
   height: 1123px;
   object-fit: cover;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -23,15 +22,4 @@ body {
 
 .page.active {
   display: block;
-}
-
-/* اسم المدعو */
-.name {
-  position: absolute;
-  top: 120px;   /* عدلي حسب تصميمك */
-  width: 100%;
-  text-align: center;
-  font-size: 36px;
-  color: #000;
-  font-weight: bold;
 }
