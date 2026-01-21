@@ -8,7 +8,7 @@ body {
 }
 
 .page img {
-  width: 794px;   /* A4 size */
+  width: 794px;
   height: 1123px;
   object-fit: cover;
   transition: opacity 1s ease;
@@ -17,7 +17,6 @@ body {
 
 .page {
   position: absolute;
-  display: block;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
