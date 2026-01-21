@@ -1,19 +1,17 @@
 body {
   margin: 0;
-  background: #f5f5f5;
-  font-family: 'Arial', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: #f5f5f5;
 }
 
 .page img {
-  width: 794px;   /* مقاس A4 */
+  width: 794px;   /* A4 size */
   height: 1123px;
   object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  transition: opacity 1s ease; /* هذا لإضافة تأثير fade */
+  transition: opacity 1s ease;
   opacity: 1;
 }
 
@@ -27,5 +25,5 @@ body {
 
 .page.hidden {
   opacity: 0;
-  pointer-events: none; /* تمنع التفاعل مع الصفحة المخفية */
+  pointer-events: none;
 }
